@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XR-тренажёр проводниковой анестезии — проект C1-643128</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="deck">
+
+<!-- ============ 1. COVER ============ -->
+<section class="slide" id="s1">
+  <div class="pad" style="flex-direction:row; gap:48px; padding-bottom:76px;">
+    <div style="flex:1.15; display:flex; flex-direction:column;">
+      <div class="kicker">Проект C1-643128 · Фонд содействия инновациям</div>
+      <h1 class="slide-title" style="font-size:60px; line-height:1.12;">
+        XR-тренажёр<br><span class="hl">проводниковой анестезии</span>
+      </h1>
+      <p style="margin-top:26px; font-size:21px; line-height:1.5; color:var(--muted); max-width:560px;">
+        Иммерсивная MR/VR-платформа обучения и объективной оценки
+        мануальных стоматологических навыков
+      </p>
+      <div style="margin-top:34px; display:flex; gap:12px; flex-wrap:wrap;">
+        <span class="tag">Цифровая анатомия</span>
+        <span class="tag" style="color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08); box-shadow:var(--glow-m);">Трекинг инструмента</span>
+        <span class="tag">Автоматическая оценка</span>
+      </div>
+      <div class="mt-auto" style="border-top:1px solid var(--line); padding-top:22px; display:flex; gap:44px;">
+        <div><div style="font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);">Руководитель</div>
+        <div style="font-family:var(--font-h); font-size:17px; margin-top:6px;">М.В. Петрушина</div></div>
+        <div><div style="font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);">Город</div>
+        <div style="font-family:var(--font-h); font-size:17px; margin-top:6px;">Москва, 2026</div></div>
+      </div>
+    </div>
+    <div class="ph" style="flex:1;">
+      <img src="assets/01-cover.jpg" alt="">
+    </div>
+  </div>
+  <div class="foot">
+    <span>Концепция депонирована в реестре РЦИС · Свидетельство №0672-880-649 от 20.05.2026</span>
+    <span class="num">01 / 14</span>
+  </div>
+</section>
+
+<!-- ============ 2. PROBLEM ============ -->
+<section class="slide opt-risk" id="s2">
+  <div class="pad">
+    <div class="kicker">Проблема</div>
+    <h1 class="slide-title">Почему обучение на пациентах и фантомах <span class="hl">недостаточно</span></h1>
+    <div class="title-line"></div>
+    <div class="grid-3" style="margin-top:52px;">
+      <div class="card">
+        <div class="bignum" style="font-size:56px; white-space:nowrap;">2–4×</div>
+        <div class="num-label" style="margin-top:14px;">чаще встречаются осложнения местной анестезии у начинающих специалистов</div>
+      </div>
+      <div class="card">
+        <div class="bignum" style="font-size:56px; white-space:nowrap; background:linear-gradient(120deg,var(--magenta),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 18px rgba(217,70,239,.45));">до 14,7%</div>
+        <div class="num-label" style="margin-top:14px;">частота осложнений у врачей со стажем менее 2 лет — вплоть до 5,4–14,7%</div>
+      </div>
+      <div class="card">
+        <div class="bignum" style="font-size:56px; white-space:nowrap;">60–75%</div>
+        <div class="num-label" style="margin-top:14px;">осложнений имеют техническую природу — их можно отрабатывать заранее</div>
+      </div>
+    </div>
+    <div class="mt-auto">
+      <div class="card" style="padding:20px 26px;">
+        <p style="font-size:19px; color:var(--text);">Ошибка техники, а не знаний. Значит, её можно потренировать <strong style="color:var(--cyan);">без риска для пациента</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Источник: данные концепции проекта</span><span class="num">02 / 14</span></div>
+</section>
+
+<!-- ============ 3. SOLUTION ============ -->
+<section class="slide" id="s3">
+  <div class="pad" style="flex-direction:row; gap:44px; padding-bottom:76px;">
+    <div style="flex:1.08; display:flex; flex-direction:column;">
+      <div class="kicker">Решение</div>
+      <h1 class="slide-title">Смешанная реальность <span class="hl">вместо риска</span> на пациенте</h1>
+      <div class="title-line" style="margin-top:12px;"></div>
+      <p style="margin-top:16px; font-size:18px; line-height:1.5; color:var(--muted);">
+        Обучающийся видит свои руки и манекен, а поверх них — кости, нервы и слизистую.
+      </p>
+      <div class="col" style="margin-top:20px; gap:8px;">
+        <div class="card" style="padding:12px 20px;">
+          <p style="font-size:15.5px;"><strong>Безопасно:</strong> полная отработка навыков без риска для пациента</p>
+        </div>
+        <div class="card" style="padding:12px 20px;">
+          <p style="font-size:15.5px;"><strong>Реалистично:</strong> физический манекен и имитатор карпульного шприца + цифровая 3D-анатомия</p>
+        </div>
+        <div class="card" style="padding:12px 20px;">
+          <p style="font-size:15.5px;"><strong>Измеримо:</strong> внешний трекинг положения шприца через TauTracker</p>
+        </div>
+      </div>
+      <div class="mt-auto" style="border-top:1px dashed var(--line); padding-top:12px; font-size:12.5px; color:rgba(165,160,200,.85); line-height:1.45;">
+        Образовательный инструмент. Не заменяет клиническое принятие решений,
+        не используется для диагностики или лечения пациентов.
+      </div>
+    </div>
+    <div class="ph" style="flex:1;">
+      <img src="assets/03-mr.jpg" alt="">
+    </div>
+  </div>
+  <div class="foot"><span>Визуализация концепции будущего прототипа</span><span class="num">03 / 14</span></div>
+</section>
+
+<!-- ============ 4. PRODUCT / ARCHITECTURE ============ -->
+<section class="slide" id="s4">
+  <div class="pad">
+    <div class="kicker">Состав комплекса</div>
+    <h1 class="slide-title">Как устроен аппаратно-программный <span class="hl">комплекс</span></h1>
+    <div class="title-line"></div>
+    <div class="grid-3" style="margin-top:26px;">
+      <div class="card" style="padding:20px 24px;">
+        <span class="tag">Аппарат</span>
+        <ul style="margin-top:14px;">
+          <li>XR-шлем (OpenXR, напр. HTC VIVE Focus Vision)</li>
+          <li>ПК</li>
+          <li>Манекен</li>
+          <li>Имитатор шприца</li>
+          <li>Внешний трекер TauTracker</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:20px 24px;">
+        <span class="tag" style="color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08); box-shadow:var(--glow-m);">ПО</span>
+        <ul style="margin-top:14px;">
+          <li>MR/VR-сцена</li>
+          <li>SDK/XR-интеграция, трекинг, калибровка</li>
+          <li>Сценарная логика</li>
+          <li>Модуль оценки</li>
+          <li>Интерфейс преподавателя</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:20px 24px;">
+        <span class="tag" style="color:var(--cyan);">Эксплуатация</span>
+        <ul style="margin-top:14px;">
+          <li>Непрерывная работа <strong>≥ 2 ч</strong></li>
+          <li>Рабочий диапазон <strong>+10…+30 °C</strong></li>
+          <li>Безопасные физические компоненты</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-auto row" style="gap:20px; align-items:stretch;">
+      <div class="card grow" style="padding:16px 24px;">
+        <p style="font-size:16px;"><strong style="color:var(--cyan);">Задел для масштабирования (после НИОКР):</strong>
+        интеграция с LMS · облачные отчёты · мультиобъектный трекинг</p>
+      </div>
+      <div class="ph" style="width:280px; height:86px;"><img src="assets/04-arch.jpg" alt=""></div>
+    </div>
+  </div>
+  <div class="foot"><span>Концепция депонирована в реестре РЦИС</span><span class="num">04 / 14</span></div>
+</section>
+
+<!-- ============ 5. PROCESS ============ -->
+<section class="slide" id="s5">
+  <div class="pad">
+    <div class="kicker">Сценарий сессии</div>
+    <h1 class="slide-title">Пять шагов от шлема <span class="hl">до итоговой оценки</span></h1>
+    <div class="title-line"></div>
+    <div style="margin-top:64px; display:grid; grid-template-columns:repeat(5,1fr); gap:16px; position:relative;">
+      <div style="position:absolute; top:34px; left:6%; right:6%; height:2px; background:linear-gradient(90deg, var(--cyan), var(--violet), var(--magenta)); box-shadow:var(--glow-v);"></div>
+      <div style="text-align:center; position:relative;">
+        <div style="width:68px; height:68px; margin:0 auto; border-radius:50%; background:var(--bg-2); border:2px solid var(--cyan); box-shadow:var(--glow-c); display:flex; align-items:center; justify-content:center; font-family:var(--font-h); font-size:26px; font-weight:700; color:var(--cyan);">1</div>
+        <div style="margin-top:20px; font-size:16px; line-height:1.5; color:var(--muted);">Выбор сценария: возраст, диагноз, анестетик</div>
+      </div>
+      <div style="text-align:center; position:relative;">
+        <div style="width:68px; height:68px; margin:0 auto; border-radius:50%; background:var(--bg-2); border:2px solid var(--violet); box-shadow:var(--glow-v); display:flex; align-items:center; justify-content:center; font-family:var(--font-h); font-size:26px; font-weight:700; color:var(--violet);">2</div>
+        <div style="margin-top:20px; font-size:16px; line-height:1.5; color:var(--muted);">Калибровка цифровой модели и манекена</div>
+      </div>
+      <div style="text-align:center; position:relative;">
+        <div style="width:68px; height:68px; margin:0 auto; border-radius:50%; background:var(--bg-2); border:2px solid var(--magenta); box-shadow:var(--glow-m); display:flex; align-items:center; justify-content:center; font-family:var(--font-h); font-size:26px; font-weight:700; color:var(--magenta);">3</div>
+        <div style="margin-top:20px; font-size:16px; line-height:1.5; color:var(--muted);">Инъекция: система фиксирует каждый миллиметр</div>
+      </div>
+      <div style="text-align:center; position:relative;">
+        <div style="width:68px; height:68px; margin:0 auto; border-radius:50%; background:var(--bg-2); border:2px solid var(--violet); box-shadow:var(--glow-v); display:flex; align-items:center; justify-content:center; font-family:var(--font-h); font-size:26px; font-weight:700; color:var(--violet);">4</div>
+        <div style="margin-top:20px; font-size:16px; line-height:1.5; color:var(--muted);">Обратная связь (учеба) или запись действий (экзамен)</div>
+      </div>
+      <div style="text-align:center; position:relative;">
+        <div style="width:68px; height:68px; margin:0 auto; border-radius:50%; background:var(--bg-2); border:2px solid var(--cyan); box-shadow:var(--glow-c); display:flex; align-items:center; justify-content:center; font-family:var(--font-h); font-size:26px; font-weight:700; color:var(--cyan);">5</div>
+        <div style="margin-top:20px; font-size:16px; line-height:1.5; color:var(--muted);">Автоматический отчёт с оценкой и ошибками</div>
+      </div>
+    </div>
+    <div class="mt-auto row" style="gap:20px;">
+      <div class="card grow" style="padding:18px 26px;">
+        <p style="font-size:17px;">Единица обучения — <strong>одна сессия</strong>: от настройки сценария до отчёта с детализацией ошибок</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Цикл учебной сессии</span><span class="num">05 / 14</span></div>
+</section>
+
+<!-- ============ 6. MODES ============ -->
+<section class="slide opt-glass" id="s6">
+  <div class="pad">
+    <div class="kicker">Гибкость</div>
+    <h1 class="slide-title">Учебный режим, экзамен и <span class="hl">вариативность</span></h1>
+    <div class="title-line"></div>
+    <div class="grid-3" style="margin-top:52px;">
+      <div class="card" style="min-height:330px;">
+        <div style="font-size:38px; margin-bottom:16px;">🎓</div>
+        <h3 style="color:var(--cyan);">Учебный режим</h3>
+        <ul>
+          <li>Пошаговые подсказки</li>
+          <li>Подсветка анатомических ориентиров</li>
+          <li>Предупреждения в реальном времени</li>
+        </ul>
+      </div>
+      <div class="card" style="min-height:330px;">
+        <div style="font-size:38px; margin-bottom:16px;">📋</div>
+        <h3 style="color:var(--magenta);">Экзаменационный режим</h3>
+        <ul>
+          <li>Подсказки отключены</li>
+          <li>Полная самостоятельность</li>
+          <li>Фиксация действий</li>
+        </ul>
+      </div>
+      <div class="card" style="min-height:330px;">
+        <div style="font-size:38px; margin-bottom:16px;">🎛️</div>
+        <h3 style="color:var(--violet);">Вариативность</h3>
+        <p style="font-size:15.5px; color:var(--muted); margin-bottom:12px;">Параметры учебного сценария:</p>
+        <ul>
+          <li>Возраст пациента</li>
+          <li>Диагноз</li>
+          <li>Сопутствующие состояния</li>
+          <li>Вид анестезии</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-auto"><p style="font-size:18px; color:var(--muted);">Преподаватель собирает сценарий <strong style="color:var(--text);">под свою задачу</strong> — от первого знакомства с техникой до аттестации.</p></div>
+  </div>
+  <div class="foot"><span>Настройка под задачи преподавателя</span><span class="num">06 / 14</span></div>
+</section>
+
+<!-- ============ 7. PRECISION ============ -->
+<section class="slide" id="s7">
+  <div class="pad" style="flex-direction:row; gap:44px; padding-bottom:76px;">
+    <div style="flex:1.1; display:flex; flex-direction:column;">
+      <div class="kicker">Технология</div>
+      <h1 class="slide-title">Точность до 1 мм: TauTracker и <span class="hl">6 зон контроля</span></h1>
+      <div class="title-line"></div>
+      <div class="row" style="margin-top:36px; gap:36px;">
+        <div>
+          <div class="bignum" style="font-size:64px;">≤ 1 мм</div>
+          <div class="num-label" style="margin-top:8px;">точность позиционирования<br>при подтверждении характеристик трекинга</div>
+        </div>
+        <div>
+          <div class="bignum" style="font-size:64px; background:linear-gradient(120deg,var(--magenta),var(--violet)); filter:drop-shadow(0 0 18px rgba(217,70,239,.45));">≤ 50 мс</div>
+          <div class="num-label" style="margin-top:8px;">задержка отображения</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:34px;">
+        <h3>Трекинг TauTracker считает</h3>
+        <p style="font-size:17px; color:var(--muted);">положение кончика иглы · глубину · угол · траекторию · стабильность</p>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:22px;">
+      <div class="ph" style="height:230px;"><img src="assets/07-needle.jpg" alt=""></div>
+      <div class="card grow">
+        <h3 style="color:var(--cyan);">6 зон контроля</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:9px; margin-top:6px;">
+          <span class="tag" style="font-size:12.5px; padding:6px 12px;">корректное</span>
+          <span class="tag" style="font-size:12.5px; padding:6px 12px;">допустимое</span>
+          <span class="tag" style="font-size:12.5px; padding:6px 12px; color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08);">ошибочное</span>
+          <span class="tag" style="font-size:12.5px; padding:6px 12px; color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08);">критическое</span>
+          <span class="tag" style="font-size:12.5px; padding:6px 12px; color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08);">чрезмерная глубина</span>
+          <span class="tag" style="font-size:12.5px; padding:6px 12px; color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08);">нежелательные области</span>
+        </div>
+        <p style="margin-top:16px; font-size:16px;">Автоматизированная оценка по медицинским и техническим критериям, формирование перечня ошибок</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Целевые характеристики прототипа</span><span class="num">07 / 14</span></div>
+</section>
+
+<!-- ============ 8. TEACHER DASHBOARD ============ -->
+<section class="slide" id="s8">
+  <div class="pad" style="flex-direction:row; gap:44px; padding-bottom:76px;">
+    <div style="flex:1.05; display:flex; flex-direction:column;">
+      <div class="kicker">Преподавателю</div>
+      <h1 class="slide-title">Панель контроля <span class="hl">учебной сессии</span></h1>
+      <div class="title-line"></div>
+      <div class="col" style="margin-top:34px; gap:15px;">
+        <div class="card" style="padding:18px 24px;">
+          <p style="font-size:17px;">📺 Дублирование вида из XR-шлема на монитор <strong>в реальном времени</strong></p>
+        </div>
+        <div class="card" style="padding:18px 24px;">
+          <p style="font-size:17px;">📊 Текущий этап, параметры введения и <strong>ошибки</strong></p>
+        </div>
+        <div class="card" style="padding:18px 24px;">
+          <p style="font-size:17px;">🎛️ Управление сценариями, сложностью, запуск и остановка сессии</p>
+        </div>
+      </div>
+      <div class="mt-auto">
+        <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Три роли в системе</div>
+        <div style="display:flex; gap:12px;">
+          <div class="tag" style="flex:1; text-align:center; padding:12px 8px;">Обучающийся</div>
+          <div class="tag" style="flex:1; text-align:center; padding:12px 8px; color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08); box-shadow:var(--glow-m);">Экзаменатор</div>
+          <div class="tag" style="flex:1; text-align:center; padding:12px 8px; color:var(--cyan);">Оператор-методист</div>
+        </div>
+      </div>
+    </div>
+    <div class="ph" style="flex:1;">
+      <img src="assets/08-dashboard.jpg" alt="">
+    </div>
+  </div>
+  <div class="foot"><span>Интерфейс преподавателя</span><span class="num">08 / 14</span></div>
+</section>
+
+<!-- ============ 9. MARKET ============ -->
+<section class="slide opt-market" id="s9">
+  <div class="pad">
+    <div class="kicker">Рынок</div>
+    <h1 class="slide-title">Кто платит за продукт <span class="hl">и почему</span></h1>
+    <div class="title-line"></div>
+    <div class="row" style="margin-top:42px; gap:24px;">
+      <div style="flex:1.25;">
+        <div class="grid-2" style="gap:16px;">
+          <div class="card" style="padding:18px 22px;"><h3 style="font-size:15px; color:var(--cyan);">Вузы</h3><p style="font-size:15.5px;">Объективный контроль навыка</p></div>
+          <div class="card" style="padding:18px 22px;"><h3 style="font-size:15px; color:var(--magenta);">ДПО</h3><p style="font-size:15.5px;">Практические платные курсы</p></div>
+          <div class="card" style="padding:18px 22px;"><h3 style="font-size:15px; color:var(--violet);">Клиники</h3><p style="font-size:15.5px;">Онбординг и меньше технических ошибок</p></div>
+          <div class="card" style="padding:18px 22px;"><h3 style="font-size:15px; color:var(--cyan);">Интеграторы</h3><p style="font-size:15.5px;">Новый модуль учебного оборудования</p></div>
+        </div>
+        <div class="card" style="margin-top:16px; padding:20px 24px;">
+          <h3>Экономика</h3>
+          <div class="row" style="gap:34px;">
+            <div><div style="font-family:var(--font-h); font-size:30px; color:var(--text);">от 1,5 млн ₽</div><div class="num-label" style="font-size:14px;">стартовая цена</div></div>
+            <div><div style="font-family:var(--font-h); font-size:30px; background:linear-gradient(90deg,var(--magenta),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;">4,5–7,5 млн ₽</div><div class="num-label" style="font-size:14px;">выручки с первых 3–5 поставок</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <div class="card" style="height:100%;">
+          <h3 style="color:var(--cyan);">Рынок уже сформирован</h3>
+          <div style="margin-top:18px;">
+            <div style="font-family:var(--font-h); font-size:34px; color:var(--text);">$401,8 → 701,1 млн</div>
+            <div class="num-label" style="margin-top:4px;">мировой рынок стоматологических симуляторов, 2024 → 2030</div>
+          </div>
+          <div style="margin-top:26px; border-top:1px solid var(--line); padding-top:22px;">
+            <div style="font-family:var(--font-h); font-size:34px; color:var(--text);">735 → 1 120 млрд ₽</div>
+            <div class="num-label" style="margin-top:4px;">оборот стоматологических услуг в России, 2021 → 2025</div>
+          </div>
+          <div class="mt-auto" style="margin-top:24px; font-size:15.5px; color:var(--muted); border-top:1px dashed var(--line); padding-top:16px;">
+            Первые покупатели: <strong style="color:var(--text);">медицинские вузы, центры симуляционного обучения, ДПО, сетевые клиники и интеграторы</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Данные концепции проекта</span><span class="num">09 / 14</span></div>
+</section>
+
+<!-- ============ 10. BENEFITS + REGULATION ============ -->
+<section class="slide" id="s10">
+  <div class="pad">
+    <div class="kicker">Выгоды и нормы</div>
+    <h1 class="slide-title">Решение под задачи клиник, вузов <span class="hl">и центров</span></h1>
+    <div class="title-line"></div>
+    <div class="grid-3" style="margin-top:44px;">
+      <div class="card">
+        <h3>Частные клиники</h3>
+        <ul>
+          <li>Ускоренный онбординг</li>
+          <li>Стандартизация протоколов</li>
+          <li>Снижение медицинских рисков</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Вузы</h3>
+        <ul>
+          <li>Практика по ФГОС ВО 31.05.03 «Стоматология»</li>
+          <li>Объективная аттестация</li>
+          <li>Данные для портфолио аккредитации</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Симуляционные центры</h3>
+        <ul>
+          <li>Современный EdTech-статус</li>
+          <li>Расширяемая библиотека сценариев</li>
+          <li>Готовая аналитика</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-auto row" style="gap:24px;">
+      <div class="card grow" style="padding:20px 26px;">
+        <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; display:flex; align-items:center; gap:10px;">
+          <span style="width:34px; height:34px; border-radius:50%; overflow:hidden; border:1px solid rgba(34,211,238,.5); box-shadow:0 0 12px rgba(34,211,238,.35); flex-shrink:0; display:inline-block;"><img src="assets/10-shield.jpg" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+          Нормативная база
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="tag" style="font-size:13px;">ФГОС ВО 31.05.03 «Стоматология»</span>
+          <span class="tag" style="font-size:13px;">Профстандарт «Врач-стоматолог»</span>
+          <span class="tag" style="font-size:13px;">Приказ Минздрава № 709н от 28.10.2022</span>
+        </div>
+      </div>
+      <div class="card" style="width:360px; padding:20px 26px;">
+        <p style="font-size:15.5px;">Для внутреннего контроля навыков и подготовки к аккредитационным процедурам. Привлечение абитуриентов и партнёров через иммерсивные технологии</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Соответствие требованиям подготовки</span><span class="num">10 / 14</span></div>
+</section>
+
+<!-- ============ 11. PLAN ============ -->
+<section class="slide opt-road" id="s11">
+  <div class="pad">
+    <div class="kicker">План проекта</div>
+    <h1 class="slide-title">Что уже готово <span class="hl">и что будет в НИОКР</span></h1>
+    <div class="title-line"></div>
+    <div style="margin-top:38px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:26px; position:relative;">
+      <div style="position:absolute; top:32px; left:8%; right:8%; height:2px; background:linear-gradient(90deg, var(--cyan), var(--violet), var(--magenta)); box-shadow:var(--glow-v);"></div>
+      <div style="position:relative;">
+        <div style="width:64px; height:64px; border-radius:50%; background:var(--bg-2); border:2px solid var(--cyan); box-shadow:var(--glow-c); display:flex; align-items:center; justify-content:center; font-size:26px;">✅</div>
+        <div class="card" style="margin-top:18px;">
+          <span class="tag">Готово</span>
+          <ul style="margin-top:14px;">
+            <li>Медицинская концепция и ТЗ</li>
+            <li>Сценарии применения и научное обоснование</li>
+            <li>Определены потребители и модель коммерциализации</li>
+            <li>Концепция <strong>депонирована</strong> (РЦИС №0672-880-649)</li>
+          </ul>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="width:64px; height:64px; border-radius:50%; background:var(--bg-2); border:2px solid var(--violet); box-shadow:var(--glow-v); display:flex; align-items:center; justify-content:center; font-size:26px;">🔧</div>
+        <div class="card" style="margin-top:18px;">
+          <span class="tag" style="color:var(--violet); border-color:var(--line-strong); background:rgba(139,92,246,.1); box-shadow:var(--glow-v);">В работе</span>
+          <ul style="margin-top:14px;">
+            <li>Работающий программно-аппаратный прототип</li>
+            <li>MR/VR-сцена и 3D-модели</li>
+            <li>Калибровка и трекинг шприца</li>
+            <li>Сценарии и оценка ошибок</li>
+          </ul>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="width:64px; height:64px; border-radius:50%; background:var(--bg-2); border:2px solid var(--magenta); box-shadow:var(--glow-m); display:flex; align-items:center; justify-content:center; font-size:26px;">🎯</div>
+        <div class="card" style="margin-top:18px;">
+          <span class="tag" style="color:var(--magenta); border-color:rgba(217,70,239,.45); background:rgba(217,70,239,.08); box-shadow:var(--glow-m);">Цель</span>
+          <ul style="margin-top:14px;">
+            <li>Испытания прототипа</li>
+            <li>Подача заявки на регистрацию программы для ЭВМ</li>
+            <li><strong style="color:var(--magenta);">3 квартал 2027</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-auto"><p style="font-size:18px; color:var(--muted); padding-bottom:14px;">Грантовый проект: создаём работающий прототип и выводим продукт <strong style="color:var(--text);">на регистрацию ПО</strong>.</p></div>
+  </div>
+  <div class="foot"><span>Концепция депонирована в реестре РЦИС</span><span class="num">11 / 14</span></div>
+</section>
+
+<!-- ============ 12. COMPETITORS ============ -->
+<section class="slide opt-compare" id="s12">
+  <div class="pad">
+    <div class="kicker">Конкуренты</div>
+    <h1 class="slide-title">Наше решение <span class="hl">против аналогов</span></h1>
+    <div class="title-line"></div>
+    <div class="grid-2" style="margin-top:40px; gap:20px;">
+      <div class="card" style="border-color:var(--line-strong); box-shadow:var(--glow-v);">
+        <h3 style="color:var(--cyan);">Наш гибрид ◆</h3>
+        <p style="font-size:16.5px; color:var(--text);">XR-шлем + физический манекен + цифровая анатомия + трекинг шприца + оценка угла, глубины, траектории и зон риска</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--muted);">Dent.pro</h3>
+        <p style="font-size:16.5px;">Гибридный стоматологический симулятор с фантомом, трекингом и цифровой оценкой — без XR и смешанной реальности</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--muted);">Simodont / Virteasy</h3>
+        <p style="font-size:16.5px;">VR и тактильные тренажёры. Высокая стоимость, проблемы с импортом, фокус на виртуальной среде</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--muted);">Обычные фантомы</h3>
+        <p style="font-size:16.5px;">Физическая отработка есть, но скрытая анатомия, траектория иглы и оценка ошибок не измеряются</p>
+      </div>
+    </div>
+    <div class="mt-auto">
+      <div class="card" style="background:linear-gradient(90deg, rgba(139,92,246,.18), rgba(217,70,239,.12)); border-color:var(--line-strong);">
+        <p style="font-size:18.5px; color:var(--text);"><strong>Ключевое отличие:</strong> только наш комплекс совмещает поле зрения обучаемого, реальный манекен и измеримую траекторию иглы</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Сравнение с аналогами на рынке</span><span class="num">12 / 14</span></div>
+</section>
+
+<!-- ============ 13. TEAM ============ -->
+<section class="slide" id="s13">
+  <div class="pad">
+    <div class="kicker">Команда</div>
+    <h1 class="slide-title">Кто <span class="hl">ведёт проект</span></h1>
+    <div class="title-line"></div>
+    <div class="grid-3" style="margin-top:44px;">
+      <div class="card" style="min-height:330px;">
+        <div style="width:76px; height:76px; border-radius:50%; overflow:hidden; margin-bottom:16px; border:2px solid rgba(34,211,238,.55); box-shadow:0 0 16px rgba(34,211,238,.35); flex-shrink:0;"><img src="assets/13-avatar-1.jpg" style="width:100%; height:100%; object-fit:cover;" alt="М.В. Петрушина"></div>
+        <h3 style="font-size:16px;">М.В. Петрушина</h3>
+        <div style="font-size:14px; color:var(--cyan); margin-bottom:12px; letter-spacing:.08em; text-transform:uppercase;">Руководитель проекта</div>
+        <p style="font-size:15.5px;">Медицинское образование, MBA. Philips Healthcare, Johnson &amp; Johnson, ICR GROUP. Управление НИОКР, коммерциализация, права на разработку.</p>
+      </div>
+      <div class="card" style="min-height:330px;">
+      <div style="width:76px; height:76px; border-radius:50%; overflow:hidden; margin-bottom:16px; border:2px solid rgba(217,70,239,.5); box-shadow:0 0 16px rgba(217,70,239,.35); flex-shrink:0;"><img src="assets/13-avatar-2.jpg" style="width:100%; height:100%; object-fit:cover;" alt="О.И. Изотов"></div>
+        <h3 style="font-size:16px;">О.И. Изотов</h3>
+        <div style="font-size:14px; color:var(--magenta); margin-bottom:12px; letter-spacing:.08em; text-transform:uppercase;">Научный руководитель</div>
+        <p style="font-size:15.5px;">К.м.н., врач-стоматолог, челюстно-лицевой хирург, преподаватель РУМ. Медицинская корректность сценариев и зон контроля.</p>
+      </div>
+      <div class="card" style="min-height:330px;">
+      <div style="width:76px; height:76px; border-radius:50%; overflow:hidden; margin-bottom:16px; border:2px solid rgba(139,92,246,.55); box-shadow:0 0 16px rgba(139,92,246,.35); flex-shrink:0;"><img src="assets/13-avatar-3.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Е.О. Смыков"></div>
+        <h3 style="font-size:16px;">Е.О. Смыков</h3>
+        <div style="font-size:14px; color:var(--violet); margin-bottom:12px; letter-spacing:.08em; text-transform:uppercase;">Разработчик</div>
+        <p style="font-size:15.5px;">VR/AR/XR-проекты, 3D-визуализация, тестирование и сопровождение ПО. Прототип, трекинг, сценарная логика, документация.</p>
+      </div>
+    </div>
+    <div class="mt-auto">
+      <div class="card" style="padding:18px 26px;">
+        <p style="font-size:16.5px;"><strong style="color:var(--cyan);">Привлекаем по мере необходимости:</strong>
+        XR-разработчик · специалист по 3D-моделированию · инженер по тестированию и интеграции</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Состав проектной команды</span><span class="num">13 / 14</span></div>
+</section>
+
+<!-- ============ 14. FINAL / CTA ============ -->
+<section class="slide" id="s14">
+  <div class="pad" style="align-items:center; justify-content:center; text-align:center;">
+    <div class="kicker" style="justify-content:center;">Итог</div>
+    <h1 class="slide-title" style="font-size:56px; max-width:900px; text-align:center;">
+      Готовы к <span class="hl">НИОКР</span> и партнёрству
+    </h1>
+    <p style="margin-top:26px; font-size:21px; color:var(--muted); max-width:760px;">
+      Концепция депонирована, команда собрана, следующий шаг —
+      работающий прототип и регистрация программы для ЭВМ
+    </p>
+    <div class="row" style="margin-top:52px; gap:22px;">
+      <div class="card" style="width:250px; text-align:center; padding:26px 20px;">
+        <div class="bignum" style="font-size:44px;">✓</div>
+        <div class="num-label" style="margin-top:10px;">Концепция депонирована<br>РЦИС №0672-880-649</div>
+      </div>
+      <div class="card" style="width:250px; text-align:center; padding:26px 20px;">
+        <div class="bignum" style="font-size:44px; background:linear-gradient(120deg,var(--violet),var(--magenta));">⌁</div>
+        <div class="num-label" style="margin-top:10px;">Прототип —<br>задача грантового проекта</div>
+      </div>
+      <div class="card" style="width:250px; text-align:center; padding:26px 20px;">
+        <div class="bignum" style="font-size:44px; background:linear-gradient(120deg,var(--magenta),var(--violet));">2027</div>
+        <div class="num-label" style="margin-top:10px;">Регистрация ПО —<br>3 квартал 2027</div>
+      </div>
+    </div>
+    <div style="margin-top:56px; font-family:var(--font-h); font-size:18px; letter-spacing:.1em;">
+      Проект <span style="color:var(--cyan);">C1-643128</span> · М.В. Петрушина · Москва, 2026
+    </div>
+    <div style="margin-top:14px; font-size:13.5px; color:rgba(165,160,200,.8); max-width:700px;">
+      Образовательный инструмент. Не заменяет клиническое принятие решений,
+      не используется для диагностики или лечения пациентов.
+    </div>
+  </div>
+  <div class="foot"><span>Концепция депонирована в реестре РЦИС</span><span class="num">14 / 14</span></div>
+</section>
+
+</div>
+
+<div class="nav">
+  <button onclick="go(-1)" aria-label="Назад">←</button>
+  <span id="counter">1 / 14</span>
+  <button onclick="go(1)" aria-label="Вперёд">→</button>
+</div>
+
+<script>
+let cur = 1;
+const total = document.querySelectorAll('.slide').length;
+function go(d) {
+  cur = Math.min(total, Math.max(1, cur + d));
+  const el = document.getElementById('s' + cur);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  document.getElementById('counter').textContent = cur + ' / ' + total;
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+});
+</script>
+</body>
+</html>

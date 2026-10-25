@@ -1,0 +1,237 @@
+/* XR dental redesign — dark neon theme (ref: Metaverse VR) */
+
+:root {
+  --bg: #0b0620;
+  --bg-2: #120b2e;
+  --surface: rgba(21, 16, 51, 0.72);
+  --surface-2: rgba(30, 23, 68, 0.6);
+  --line: rgba(139, 92, 246, 0.28);
+  --line-strong: rgba(139, 92, 246, 0.55);
+  --violet: #8b5cf6;
+  --magenta: #d946ef;
+  --cyan: #22d3ee;
+  --text: #ede9fe;
+  --muted: #a5a0c8;
+  --glow-v: 0 0 24px rgba(139, 92, 246, 0.35);
+  --glow-m: 0 0 24px rgba(217, 70, 239, 0.3);
+  --glow-c: 0 0 18px rgba(34, 211, 238, 0.3);
+  --font-h: "Unbounded", "Segoe UI", sans-serif;
+  --font-b: "Manrope", "Segoe UI", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #05030f;
+  color: var(--text);
+  font-family: var(--font-b);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- screen mode ---------- */
+@media screen {
+  body { display: flex; flex-direction: column; align-items: center; }
+
+  .deck { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 28px 0 90px; }
+
+  .slide {
+    transform-origin: top center;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .nav {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 14px; align-items: center; z-index: 99;
+    background: rgba(11, 6, 32, 0.85); border: 1px solid var(--line);
+    padding: 8px 18px; border-radius: 999px; backdrop-filter: blur(8px);
+  }
+  .nav button {
+    background: transparent; border: 1px solid var(--line-strong); color: var(--text);
+    width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 16px;
+  }
+  .nav button:hover { background: rgba(139, 92, 246, 0.25); box-shadow: var(--glow-v); }
+  .nav span { font-size: 13px; color: var(--muted); min-width: 54px; text-align: center; }
+}
+
+/* ---------- slide base ---------- */
+.slide {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+  background:
+    linear-gradient(rgba(11, 6, 32, 0.78), rgba(11, 6, 32, 0.88)),
+    url("assets/15-bg.jpg") center / cover no-repeat;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* subtle grid */
+.slide::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 45%, #000 30%, transparent 80%);
+  pointer-events: none;
+}
+
+.slide > * { position: relative; z-index: 2; }
+
+.pad { padding: 64px 76px; height: 100%; display: flex; flex-direction: column; }
+
+/* ---------- header ---------- */
+.kicker {
+  font-family: var(--font-b);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--cyan);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+}
+.kicker::before {
+  content: ""; width: 34px; height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  box-shadow: var(--glow-c);
+}
+
+h1.slide-title {
+  font-family: var(--font-h);
+  font-size: 44px; line-height: 1.18; font-weight: 600;
+  letter-spacing: -0.01em; max-width: 1050px;
+}
+h1.slide-title .hl {
+  background: linear-gradient(90deg, var(--violet), var(--magenta));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.title-line {
+  margin-top: 20px; height: 3px; width: 180px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--violet), var(--magenta), transparent);
+  box-shadow: var(--glow-v);
+}
+
+.foot {
+  position: absolute; left: 76px; right: 76px; bottom: 26px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: rgba(165, 160, 200, 0.75); z-index: 3;
+}
+.foot .num { font-family: var(--font-h); font-size: 14px; color: var(--violet); }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px 28px;
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+.card::after {
+  content: ""; position: absolute; top: 0; left: 24px; right: 24px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.65), transparent);
+}
+.card h3 {
+  font-family: var(--font-h); font-size: 17px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px;
+  color: var(--text);
+}
+.card p, .card li { font-size: 17px; line-height: 1.45; color: var(--muted); }
+.card ul { list-style: none; }
+.card li { padding-left: 24px; position: relative; margin-bottom: 7px; }
+.card li::before {
+  content: ""; position: absolute; left: 0; top: 10px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--magenta));
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.8);
+}
+.card li strong, .card strong { color: var(--text); font-weight: 700; }
+
+.tag {
+  display: inline-block; font-size: 13px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cyan); border: 1px solid rgba(34, 211, 238, 0.4);
+  padding: 6px 14px; border-radius: 999px; background: rgba(34, 211, 238, 0.08);
+  box-shadow: var(--glow-c);
+}
+
+/* big numbers */
+.bignum {
+  font-family: var(--font-h); font-weight: 700; font-size: 72px; line-height: 1;
+  background: linear-gradient(120deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 18px rgba(34, 211, 238, 0.45));
+}
+.num-label { font-size: 16.5px; color: var(--muted); line-height: 1.45; }
+
+/* image placeholder */
+.ph {
+  border: 1px dashed rgba(139, 92, 246, 0.5);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(139, 92, 246, 0.2), transparent 65%),
+    linear-gradient(160deg, rgba(21, 16, 51, 0.9), rgba(11, 6, 32, 0.9));
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  gap: 10px; color: var(--muted); font-size: 14.5px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.ph::before {
+  content: ""; position: absolute; inset: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.18); border-radius: 12px;
+}
+.ph .icon { font-size: 44px; opacity: 0.9; filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.7)); }
+.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* real image inside — hide placeholder frame */
+.ph:has(img) { border-color: transparent; }
+.ph:has(img)::before { display: none; }
+
+/* specific helpers */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.row { display: flex; gap: 24px; }
+.col { display: flex; flex-direction: column; gap: 18px; }
+.grow { flex: 1; }
+.mt-auto { margin-top: auto; }
+
+/* optional slide-level decorative backgrounds (image + heavy dark overlay) */
+.slide.opt-glass, .slide.opt-market, .slide.opt-road, .slide.opt-compare, .slide.opt-risk {
+  background:
+    linear-gradient(rgba(11, 6, 32, 0.85), rgba(11, 6, 32, 0.92)),
+    var(--opt-img) center / cover no-repeat,
+    var(--bg);
+}
+.slide.opt-glass { --opt-img: url("assets/06-glass.jpg"); }
+.slide.opt-market { --opt-img: url("assets/09-market.jpg"); }
+.slide.opt-road { --opt-img: url("assets/11-roadmap.jpg"); }
+.slide.opt-compare { --opt-img: url("assets/12-compare.jpg"); }
+.slide.opt-risk { --opt-img: url("assets/02-risk.jpg"); }
+
+/* ---------- print / pdf ---------- */
+@page { size: 1280px 720px; margin: 0; }
+
+/* Chromium print bug: background-clip:text renders as boxes/frames in PDF */
+@media print {
+  .hl, .bignum, [style*="background-clip"] {
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    -webkit-text-fill-color: #c4b5fd !important;
+    color: #c4b5fd !important;
+    filter: none !important;
+  }
+  .bignum { -webkit-text-fill-color: #67e8f9 !important; color: #67e8f9 !important; }
+}
+
+@media print {
+  html, body { background: #0b0620; width: 1280px; }
+  .nav { display: none !important; }
+  .deck { display: block; padding: 0; gap: 0; }
+  .slide {
+    border: none; border-radius: 0; box-shadow: none;
+    page-break-after: always; break-after: page;
+    transform: none !important;
+  }
+  .slide:last-child { page-break-after: auto; }
+}
