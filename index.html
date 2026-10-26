@@ -580,6 +580,18 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(1); }
   if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
 });
+/* mobile: масштабируем слайды 1280x720 под ширину экрана
+   (zoom меняет layout-размер, в отличие от transform) */
+function fitDeck() {
+  var vw = document.documentElement.clientWidth;
+  var z = vw < 1280 ? (vw / 1280) : null;
+  document.querySelectorAll('.slide').forEach(function (s) {
+    if (z) s.style.zoom = z; else s.style.zoom = '';
+  });
+}
+fitDeck();
+window.addEventListener('resize', fitDeck);
+window.addEventListener('orientationchange', fitDeck);
 </script>
 </body>
 </html>
